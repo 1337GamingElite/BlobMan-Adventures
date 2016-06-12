@@ -9,8 +9,7 @@ import com.blobMan.lvl.tile.Tile;
 
 public class SpawnLevel extends Level {
 
-	private Tile[] tiles;
-	private int[] lvlPixels;
+	private int[] tiles;
 	
 	public SpawnLevel(String path) {
 		super(path);
@@ -22,8 +21,8 @@ public class SpawnLevel extends Level {
 			BufferedImage img = ImageIO.read(SpawnLevel.class.getResource(path));
 			int w = img.getWidth();
 			int h = img.getHeight();
-			tiles = new Tile[w * h];
-			img.getRGB(0, 0, w, h, lvlPixels, 0, w);
+			tiles = new int[w * h];
+			img.getRGB(0, 0, w, h, tiles, 0, w);
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println("COULDN'T LOAD THE LEVEL FILE!!!!!!!!!!");
@@ -31,21 +30,16 @@ public class SpawnLevel extends Level {
 	}
 	
 	/*
-	 * Grass = 0x00ff00 (Green)
-	 * Blue Flower = 0x00ffff (Light Blue)
-	 * Yellow Flower = 0xffff00 (Yellow)
-	 * Rock = 0x7a7a7a(Grey)
-	 * Dirt = 0xffa800 (Brown / Orange)
+	 * TILE -> COLOUR
+	 * Grass = 0xff00ff00 (Green)
+	 * Blue Flower = 0xff00ffff (Light Blue)
+	 * Yellow Flower = 0xffffff00 (Yellow)
+	 * Rock = 0xff7a7a7a(Grey)
+	 * Dirt = 0xffffa800 (Brown / Orange)
 	 */
 	@Override
 	protected void generateLevel() {
-		for (int i = 0 ; i < lvlPixels.length; i++) {
-			if (lvlPixels[i] == 0x00ff00) tiles[i] = Tile.grass;
-			if (lvlPixels[i] == 0x00ffff) tiles[i] = Tile.blueFlower;
-			if (lvlPixels[i] == 0xffff00) tiles[i] = Tile.yellowFlower;
-			if (lvlPixels[i] == 0x7a7a7a) tiles[i] = Tile.rock;
-			if (lvlPixels[i] == 0xffa800) tiles[i] = Tile.dirt;
-		}
+
 	}
 
 }

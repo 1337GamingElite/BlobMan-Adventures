@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import com.blobMan.entity.mob.Player;
 import com.blobMan.lvl.Level;
 import com.blobMan.lvl.RandomLevel;
+import com.blobMan.lvl.SpawnLevel;
 import com.blobMan.main.gfx.Screen;
 import com.blobMan.main.input.Keyboard;
 
@@ -47,7 +48,7 @@ public class Game extends Canvas implements Runnable {
 		screen = new Screen(width, height);
 		window = new JFrame();
 
-		lvl = new RandomLevel(128, 128);
+		lvl = new SpawnLevel("/Levels/level.png");
 
 		key = new Keyboard();
 		addKeyListener(key);
