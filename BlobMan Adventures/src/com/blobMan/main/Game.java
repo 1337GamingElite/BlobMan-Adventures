@@ -48,11 +48,11 @@ public class Game extends Canvas implements Runnable {
 		screen = new Screen(width, height);
 		window = new JFrame();
 
-		lvl = new SpawnLevel("/Levels/level.png");
+		lvl = Level.spawn;
 
 		key = new Keyboard();
 		addKeyListener(key);
-		player = new Player(130, 130, key);
+		player = new Player(20 * 16, 66 * 16, key);
 	}
 
 	public synchronized void start() {

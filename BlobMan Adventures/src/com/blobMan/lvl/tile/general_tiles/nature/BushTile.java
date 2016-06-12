@@ -21,5 +21,9 @@ public class BushTile extends Tile {
 	public boolean isSolid() {
 		return true;
 	}
-
+	
+	public boolean isBreakable() {
+		return true;
+	}
+	
 }

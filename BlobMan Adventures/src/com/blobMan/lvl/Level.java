@@ -8,6 +8,8 @@ public class Level {
 	protected int width, height;
 	protected int[] tilesInt;
 	protected int[] tiles;
+	
+	public static Level spawn = new SpawnLevel("/Levels/spawn.png");
 
 	public Level(int width, int height) {
 		this.width = width;
@@ -50,28 +52,18 @@ public class Level {
 			}
 		}
 	}
-
-	/*
-	 * TILE -> COLOUR
-	 * Grass = 0xff00ff00 (Green)
-	 * Blue Flower = 0xff00ffff (Light Blue)
-	 * Yellow Flower = 0xffffff00 (Yellow)
-	 * Rock = 0xff7a7a7a(Grey)
-	 * Dirt = 0xffffa800 (Brown / Orange)
-	 */
+	
 	public Tile getTile(int x, int y) {
-		if (x < 0 || y < 0 || x >= width || y >= height)
-			return Tile.voidTile;
-		if (tiles[x + y * width] == 0xff00ff00)
-			return Tile.grass;
-		if (tiles[x + y * width] == 0xffffff00)
-			return Tile.yellowFlower;
-		if (tiles[x + y * width] == 0xff7a7a7a)
-			return Tile.rock;
-		if (tiles[x + y * width] == 0xffffa800)
-			return Tile.dirt;
-		if (tiles[x + y * width] == 0xff00ffff)
-			return Tile.blueFlower;
+		if (x < 0 || y < 0 || x >= width || y >= height) return Tile.voidTile;
+		if (tiles[x + y * width] == Tile.col_grass) return Tile.grass;
+		if (tiles[x + y * width] == Tile.col_yellowFlower) return Tile.yellowFlower;
+		if (tiles[x + y * width] == Tile.col_rock) return Tile.rock;
+		if (tiles[x + y * width] == Tile.col_dirt) return Tile.dirt;
+		if (tiles[x + y * width] == Tile.col_blueFlower) return Tile.blueFlower;
+		if (tiles[x + y * width] == Tile.col_woodFloor) return Tile.woodFloor;
+		if (tiles[x + y * width] == Tile.col_stoneWall) return Tile.stoneWall;
+		if (tiles[x + y * width] == Tile.col_bush) return Tile.bush;
+		if (tiles[x + y * width] == Tile.col_water) return Tile.water;
 		return Tile.voidTile;
 	}
 
