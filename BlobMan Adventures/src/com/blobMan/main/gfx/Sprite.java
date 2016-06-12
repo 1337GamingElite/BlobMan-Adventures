@@ -7,19 +7,30 @@ public class Sprite {
 	public int[] pixels;
 	private SpriteSheet sheet;
 
+	public static Sprite voidSprite = new Sprite(16, 0, 1, SpriteSheet.tiles);
+	
 	// Sprites
+	// General Sprites
+	
+	// Nature
 	public static Sprite grass = new Sprite(16, 0, 0, SpriteSheet.tiles);
+	public static Sprite bush = new Sprite(16, 4, 0, SpriteSheet.tiles);
+	public static Sprite dirt = new Sprite(16, 3, 0, SpriteSheet.tiles);
+	public static Sprite rock = new Sprite(16, 2, 0, SpriteSheet.tiles);
+	public static Sprite water = new Sprite(16, 4, 1, SpriteSheet.tiles);
+
+	// Man-Made
+	public static Sprite woodFloor = new Sprite(16, 2, 1, SpriteSheet.tiles);
+	public static Sprite stoneWall = new Sprite(16, 3, 1, SpriteSheet.tiles);
+	
+	// Flowers
 	public static Sprite yellowFlower = new Sprite(16, 1, 0, SpriteSheet.tiles);
 	public static Sprite blueFlower = new Sprite(16, 1, 1, SpriteSheet.tiles);
-	public static Sprite rock = new Sprite(16, 2, 0, SpriteSheet.tiles);
-	public static Sprite dirt = new Sprite(16, 3, 0, SpriteSheet.tiles);
-	
-	public static Sprite voidSprite = new Sprite(16, 0, 1, SpriteSheet.tiles);
 
+	// Player Sprites
 	public static Sprite player_up = new Sprite(32, 2, 6, SpriteSheet.tiles);
 	public static Sprite player_down = new Sprite(32, 0, 6, SpriteSheet.tiles);
 	public static Sprite player_side = new Sprite(32, 0, 7, SpriteSheet.tiles);
-	
 	public static Sprite player_up_1 = new Sprite(32, 3, 6, SpriteSheet.tiles);
 	public static Sprite player_down_1 = new Sprite(32, 1, 6, SpriteSheet.tiles);
 	public static Sprite player_side_1 = new Sprite(32, 1, 7, SpriteSheet.tiles);
