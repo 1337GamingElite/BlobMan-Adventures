@@ -25,7 +25,7 @@ public class Game extends Canvas implements Runnable {
 	// Window Size
 	public static int width = 300, height = 225;
 	public static int scale = 3;
-	public static String title = "BlobMan Adventures - Test Build";
+	public static String title = "BlobMan Adventures - Development Build";
 	private static ImageIcon icon = new ImageIcon("res/icon.png");
 
 	private Thread gameThread;
