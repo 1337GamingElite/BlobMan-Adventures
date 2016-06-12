@@ -16,6 +16,7 @@ import com.blobMan.entity.mob.Player;
 import com.blobMan.lvl.Level;
 import com.blobMan.lvl.RandomLevel;
 import com.blobMan.lvl.SpawnLevel;
+import com.blobMan.lvl.TileCoords;
 import com.blobMan.main.gfx.Screen;
 import com.blobMan.main.input.Keyboard;
 
@@ -52,7 +53,8 @@ public class Game extends Canvas implements Runnable {
 
 		key = new Keyboard();
 		addKeyListener(key);
-		player = new Player(20 * 16, 66 * 16, key);
+		TileCoords playerSpawn = new TileCoords(20, 66);
+		player = new Player(playerSpawn.getX(), playerSpawn.getY(), key);
 	}
 
 	public synchronized void start() {
