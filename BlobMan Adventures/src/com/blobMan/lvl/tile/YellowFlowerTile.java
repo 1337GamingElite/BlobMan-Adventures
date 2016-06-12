@@ -3,9 +3,9 @@ package com.blobMan.lvl.tile;
 import com.blobMan.main.gfx.Screen;
 import com.blobMan.main.gfx.Sprite;
 
-public class FlowerTile extends Tile {
+public class YellowFlowerTile extends Tile {
 
-	public FlowerTile(Sprite sprite) {
+	public YellowFlowerTile(Sprite sprite) {
 		super(sprite);
 	}
 	
