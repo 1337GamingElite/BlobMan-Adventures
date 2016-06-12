@@ -52,7 +52,7 @@ public class Game extends Canvas implements Runnable {
 
 		key = new Keyboard();
 		addKeyListener(key);
-		player = new Player(key);
+		player = new Player(130, 130, key);
 	}
 
 	public synchronized void start() {
