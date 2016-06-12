@@ -1,18 +1,19 @@
-package com.blobMan.lvl.tile;
+package com.blobMan.lvl.tile.flowers;
 
+import com.blobMan.lvl.tile.Tile;
 import com.blobMan.main.gfx.Screen;
 import com.blobMan.main.gfx.Sprite;
 
-public class DirtTile extends Tile {
+public class YellowFlowerTile extends Tile {
 
-	public DirtTile(Sprite sprite) {
+	public YellowFlowerTile(Sprite sprite) {
 		super(sprite);
 	}
-
+	
 	// Renders the tile here
 	@Override
 	public void render(int x, int y, Screen screen) {
 		screen.renderTile(x << 4, y << 4, this);
 	}
-	
+
 }

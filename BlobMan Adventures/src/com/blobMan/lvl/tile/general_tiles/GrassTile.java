@@ -1,5 +1,6 @@
-package com.blobMan.lvl.tile;
+package com.blobMan.lvl.tile.general_tiles;
 
+import com.blobMan.lvl.tile.Tile;
 import com.blobMan.main.gfx.Screen;
 import com.blobMan.main.gfx.Sprite;
 

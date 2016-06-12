@@ -1,5 +1,10 @@
 package com.blobMan.lvl.tile;
 
+import com.blobMan.lvl.tile.flowers.BlueFlowerTile;
+import com.blobMan.lvl.tile.flowers.YellowFlowerTile;
+import com.blobMan.lvl.tile.general_tiles.DirtTile;
+import com.blobMan.lvl.tile.general_tiles.GrassTile;
+import com.blobMan.lvl.tile.general_tiles.RockTile;
 import com.blobMan.main.gfx.Screen;
 import com.blobMan.main.gfx.Sprite;
 
