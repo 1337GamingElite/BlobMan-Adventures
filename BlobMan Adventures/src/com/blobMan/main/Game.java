@@ -25,7 +25,7 @@ public class Game extends Canvas implements Runnable {
 	// Window Size
 	public static int width = 300, height = 225;
 	public static int scale = 3;
-	public static String title = "BlobMan Adventures";
+	public static String title = "BlobMan Adventures - Test Build";
 	private static ImageIcon icon = new ImageIcon("res/icon.png");
 
 	private Thread gameThread;
@@ -92,7 +92,6 @@ public class Game extends Canvas implements Runnable {
 
 			if (System.currentTimeMillis() - timer > 1000) {
 				timer += 1000;
-				System.out.println("FPS: " + frames + ", TICKS: " + ticks);
 				window.setTitle(title + " | " + frames + " fps, " + ticks + " ticks");
 				ticks = 0;
 				frames = 0;
