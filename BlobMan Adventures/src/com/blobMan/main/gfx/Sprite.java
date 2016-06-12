@@ -14,7 +14,7 @@ public class Sprite {
 	public static Sprite rock = new Sprite(16, 2, 0, SpriteSheet.tiles);
 	public static Sprite dirt = new Sprite(16, 3, 0, SpriteSheet.tiles);
 	
-	public static Sprite voidSprite = new Sprite(16, 0x000000);
+	public static Sprite voidSprite = new Sprite(16, 0, 1, SpriteSheet.tiles);
 
 	public static Sprite player_up = new Sprite(32, 2, 6, SpriteSheet.tiles);
 	public static Sprite player_down = new Sprite(32, 0, 6, SpriteSheet.tiles);
