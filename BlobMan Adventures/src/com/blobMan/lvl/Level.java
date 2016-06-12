@@ -51,18 +51,26 @@ public class Level {
 		}
 	}
 
+	/*
+	 * TILE -> COLOUR
+	 * Grass = 0xff00ff00 (Green)
+	 * Blue Flower = 0xff00ffff (Light Blue)
+	 * Yellow Flower = 0xffffff00 (Yellow)
+	 * Rock = 0xff7a7a7a(Grey)
+	 * Dirt = 0xffffa800 (Brown / Orange)
+	 */
 	public Tile getTile(int x, int y) {
 		if (x < 0 || y < 0 || x >= width || y >= height)
 			return Tile.voidTile;
-		if (tilesInt[x + y * width] == 0)
+		if (tiles[x + y * width] == 0xff00ff00)
 			return Tile.grass;
-		if (tilesInt[x + y * width] == 1)
+		if (tiles[x + y * width] == 0xffffff00)
 			return Tile.yellowFlower;
-		if (tilesInt[x + y * width] == 2)
+		if (tiles[x + y * width] == 0xff7a7a7a)
 			return Tile.rock;
-		if (tilesInt[x + y * width] == 3)
+		if (tiles[x + y * width] == 0xffffa800)
 			return Tile.dirt;
-		if (tilesInt[x + y * width] == 4)
+		if (tiles[x + y * width] == 0xff00ffff)
 			return Tile.blueFlower;
 		return Tile.voidTile;
 	}
