@@ -17,6 +17,7 @@ import com.blobMan.lvl.Level;
 import com.blobMan.lvl.TileCoords;
 import com.blobMan.main.gfx.Screen;
 import com.blobMan.main.input.Keyboard;
+import com.blobMan.main.input.Mouse;
 
 public class Game extends Canvas implements Runnable {
 
@@ -51,6 +52,11 @@ public class Game extends Canvas implements Runnable {
 
 		key = new Keyboard();
 		addKeyListener(key);
+		
+		Mouse mouse = new Mouse();
+		addMouseListener(mouse);
+		addMouseMotionListener(mouse);
+		
 		TileCoords playerSpawn = new TileCoords(20, 66);
 		player = new Player(playerSpawn.getX(), playerSpawn.getY(), key);
 		player.init(lvl);
@@ -132,11 +138,11 @@ public class Game extends Canvas implements Runnable {
 		g.drawImage(img, 0, 0, getWidth(), getHeight(), null);
 
 		// Coordinates
-		
-		g.setColor(Color.WHITE); 
+		g.setColor(Color.BLACK); 
 		g.setFont(new Font("Verdana", 0, 50));
-		//g.drawString("X: " + player.x + ", Y: " + player.y, width * scale / 2, height * scale / 2);
-		 
+		
+/*		g.fillRect(Mouse.getX() - 32, Mouse.getY() - 32, 64, 64);
+		g.drawString("Button: " + Mouse.getButton(), 80, 80);*/
 
 		g.dispose();
 		bs.show();
