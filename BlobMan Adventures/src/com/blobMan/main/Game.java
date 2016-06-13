@@ -14,8 +14,6 @@ import javax.swing.JFrame;
 
 import com.blobMan.entity.mob.Player;
 import com.blobMan.lvl.Level;
-import com.blobMan.lvl.RandomLevel;
-import com.blobMan.lvl.SpawnLevel;
 import com.blobMan.lvl.TileCoords;
 import com.blobMan.main.gfx.Screen;
 import com.blobMan.main.input.Keyboard;
