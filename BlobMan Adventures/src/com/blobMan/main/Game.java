@@ -24,9 +24,9 @@ public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
 
 	// Window Size
-	public static int width = 300, height = 225;
-	public static int scale = 3;
-	public static String title = "BlobMan Adventures - Work In Progress";
+	private static int width = 300, height = 225;
+	private static int scale = 3;
+	private static String title = "BlobMan Adventures - Work In Progress";
 	private static ImageIcon icon = new ImageIcon("res/icon.png");
 
 	private Thread gameThread;
@@ -61,6 +61,18 @@ public class Game extends Canvas implements Runnable {
 		player = new Player(playerSpawn.getX(), playerSpawn.getY(), key);
 		player.init(lvl);
 	}
+	
+	public static int getWindowWidth() {
+		return width * scale;
+	}
+
+
+
+	public static int getWindowHeight() {
+		return height * scale;
+	}
+
+
 
 	public synchronized void start() {
 		running = true;

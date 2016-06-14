@@ -1,5 +1,6 @@
 package com.blobMan.entity.mob;
 
+import com.blobMan.main.Game;
 import com.blobMan.main.gfx.Screen;
 import com.blobMan.main.gfx.Sprite;
 import com.blobMan.main.input.Keyboard;
@@ -62,8 +63,8 @@ public class Player extends Mob {
 	private void tickShooting() {
 
 		if (Mouse.getButton() == 1) {
-			double dx  = Mouse.getX() - x;
-			double dy = Mouse.getY() - y;
+			double dx  = Mouse.getX() - Game.getWindowWidth() / 2;
+			double dy = Mouse.getY() - Game.getWindowHeight() / 2;
 			double dir = Math.atan2(dy, dx);
 			shoot(x, y, dir);
 		}
