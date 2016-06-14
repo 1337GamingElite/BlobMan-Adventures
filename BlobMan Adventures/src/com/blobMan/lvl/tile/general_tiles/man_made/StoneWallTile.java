@@ -13,7 +13,7 @@ public class StoneWallTile extends Tile {
 	// Renders the tile here
 	@Override
 	public void render(int x, int y, Screen screen) {
-		screen.renderTile(x << 4, y << 4, Sprite.stoneWall);
+		screen.renderTile(x << 4, y << 4, this);
 	}
 	
 	@Override

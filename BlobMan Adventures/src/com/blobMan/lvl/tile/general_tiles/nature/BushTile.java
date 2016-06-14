@@ -13,7 +13,7 @@ public class BushTile extends Tile {
 	// Renders the tile here
 	@Override
 	public void render(int x, int y, Screen screen) {
-		screen.renderTile(x << 4, y << 4, Sprite.bush);
+		screen.renderTile(x << 4, y << 4, this);
 	}
 
 	// TODO: Decide if bush should be solid

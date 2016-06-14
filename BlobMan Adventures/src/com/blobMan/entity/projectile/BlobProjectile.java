@@ -11,7 +11,7 @@ public class BlobProjectile extends Projectile {
 		speed = 4;
 		dmg = 20; 
 		rof = 15;
-		sprite = Sprite.blueFlower;
+		sprite = Sprite.blob_projectile;
 		nx = speed * Math.cos(angle);
 		ny = speed * Math.sin(angle);
 	}
@@ -27,7 +27,7 @@ public class BlobProjectile extends Projectile {
 	}
 	
 	public void render(Screen screen) {
-		screen.renderTile(x, y, sprite);
+		screen.renderProjectile(x, y, this);
 	}
 	
 }
