@@ -1,6 +1,11 @@
 package com.blobMan.entity.mob;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.blobMan.entity.Entity;
+import com.blobMan.entity.projectile.BlobProjectile;
+import com.blobMan.entity.projectile.Projectile;
 import com.blobMan.main.gfx.Sprite;
 
 public abstract class Mob extends Entity {
@@ -8,6 +13,9 @@ public abstract class Mob extends Entity {
 	protected Sprite sprite;
 	protected int dir = 0;
 	protected boolean moving = false;
+	protected boolean walking = false;
+	
+	protected List<Projectile> projectiles = new ArrayList<Projectile>();
 
 	public void move(int xa, int ya) {
 		// Checks movement in both axis
@@ -37,8 +45,11 @@ public abstract class Mob extends Entity {
 	}
 
 	protected void shoot(int x, int y, double dir) {
-		dir = Math.toDegrees(dir);
-		System.out.println("Angle: " + dir);
+		// Sets dir to degrees
+		//dir = Math.toDegrees(dir);
+		Projectile p = new BlobProjectile(x, y, dir);
+		projectiles.add(p);
+		level.add(p);
 	}
 	
 	private boolean collision(int xa, int ya) {

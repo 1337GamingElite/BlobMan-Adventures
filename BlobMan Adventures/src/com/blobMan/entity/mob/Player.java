@@ -11,7 +11,6 @@ public class Player extends Mob {
 	private Keyboard input;
 	private Sprite sprite;
 	private int anim = 0;
-	private boolean walking = false;
 
 	// Player spawns at the default location
 	public Player(Keyboard input) {

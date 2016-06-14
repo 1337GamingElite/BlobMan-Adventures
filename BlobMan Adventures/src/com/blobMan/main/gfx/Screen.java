@@ -33,17 +33,17 @@ public class Screen {
 		}
 	}
 
-	public void renderTile(int xPos, int yPos, Tile tile) {
+	public void renderTile(int xPos, int yPos, Sprite sprite) {
 		xPos -= xOff;
 		yPos -= yOff;
-		for (int y = 0; y < tile.sprite.SIZE; y++) {
+		for (int y = 0; y < sprite.SIZE; y++) {
 			int ya = y + yPos;
-			for (int x = 0; x < tile.sprite.SIZE; x++) {
+			for (int x = 0; x < sprite.SIZE; x++) {
 				int xa = x + xPos;
-				if (xa < -tile.sprite.SIZE || xa >= width || ya < 0 || ya >= height)
+				if (xa < -sprite.SIZE || xa >= width || ya < 0 || ya >= height)
 					break;
 				if (xa < 0) xa = 0;
-				pixels[xa + ya * width] = tile.sprite.pixels[x + y * tile.sprite.SIZE];
+				pixels[xa + ya * width] = sprite.pixels[x + y * sprite.SIZE];
 			}
 		}
 	}

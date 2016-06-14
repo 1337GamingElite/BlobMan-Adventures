@@ -125,6 +125,7 @@ public class Game extends Canvas implements Runnable {
 		if (key.esc)
 			System.exit(0);
 		player.tick();
+		lvl.tick();
 	}
 
 	public void render() {
