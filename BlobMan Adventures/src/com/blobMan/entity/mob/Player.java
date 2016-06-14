@@ -3,6 +3,7 @@ package com.blobMan.entity.mob;
 import com.blobMan.main.gfx.Screen;
 import com.blobMan.main.gfx.Sprite;
 import com.blobMan.main.input.Keyboard;
+import com.blobMan.main.input.Mouse;
 
 public class Player extends Mob {
 
@@ -47,12 +48,24 @@ public class Player extends Mob {
 			xa -= moveSpeed;
 		if (input.right)
 			xa += moveSpeed;
-
+		
 		if (xa != 0 || ya != 0) {
 			move(xa, ya);
 			walking = true;
 		} else {
 			walking = false;
+		}
+		
+		tickShooting();
+	}
+	
+	private void tickShooting() {
+
+		if (Mouse.getButton() == 1) {
+			double dx  = Mouse.getX() - x;
+			double dy = Mouse.getY() - y;
+			double dir = Math.atan2(dy, dx);
+			shoot(x, y, dir);
 		}
 	}
 
