@@ -5,12 +5,13 @@ import com.blobMan.main.gfx.Sprite;
 
 public class BlobProjectile extends Projectile {
 
+	public static final int ROF = 20; // Rate of Fire
+	
 	public BlobProjectile(int x, int y, double dir) {
 		super(x, y, dir);
-		range = 100;
-		speed = 5;
-		dmg = 20;
-		rof = 15;
+		range = 150;
+		speed = 4;
+		dmg = 20;	// Player has 100 at the start
 		sprite = Sprite.blob_projectile;
 		nx = speed * Math.cos(angle);
 		ny = speed * Math.sin(angle);
