@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.blobMan.entity.Entity;
+import com.blobMan.entity.projectile.Projectile;
 import com.blobMan.lvl.tile.Tile;
 import com.blobMan.main.gfx.Screen;
 
@@ -14,6 +15,7 @@ public class Level {
 	protected int[] tiles;
 	
 	private List<Entity> entities = new ArrayList<Entity>();
+	private List<Projectile> projectiles = new ArrayList<Projectile>();
 	
 	public static Level spawn = new SpawnLevel("/Levels/spawn.png");
 
@@ -36,10 +38,18 @@ public class Level {
 	protected void loadLevel(String path) {
 
 	}
+	
+	public List<Projectile> getProjectiles() {
+		return projectiles;
+	}
 
 	public void tick() {
 		for (int i = 0; i < entities.size(); i++) {
 			entities.get(i).tick();
+		}
+		
+		for (int i = 0; i < projectiles.size(); i++) {
+			projectiles.get(i).tick();
 		}
 	}
 
@@ -63,10 +73,18 @@ public class Level {
 		for (int i = 0; i < entities.size(); i++) {
 			entities.get(i).render(screen);
 		}
+		
+		for (int i = 0; i < projectiles.size(); i++) {
+			projectiles.get(i).render(screen);
+		}
 	}
 	
 	public void add(Entity e) {
 		entities.add(e);
+	}
+	
+	public void addProjectile(Projectile p) {
+		projectiles.add(p);
 	}
 	
 	public Tile getTile(int x, int y) {

@@ -1,5 +1,6 @@
 package com.blobMan.entity.mob;
 
+import com.blobMan.entity.projectile.Projectile;
 import com.blobMan.main.Game;
 import com.blobMan.main.gfx.Screen;
 import com.blobMan.main.gfx.Sprite;
@@ -56,9 +57,17 @@ public class Player extends Mob {
 			walking = false;
 		}
 		
+		clear();
 		tickShooting();
 	}
 	
+	private void clear() {
+		for(int i = 0; i < level.getProjectiles().size(); i++) {
+			Projectile p = level.getProjectiles().get(i);
+			if (p.isRemoved()) level.getProjectiles().remove(i);
+		}
+	}
+
 	private void tickShooting() {
 
 		if (Mouse.getButton() == 1) {

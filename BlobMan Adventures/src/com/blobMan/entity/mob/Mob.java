@@ -1,8 +1,5 @@
 package com.blobMan.entity.mob;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.blobMan.entity.Entity;
 import com.blobMan.entity.projectile.BlobProjectile;
 import com.blobMan.entity.projectile.Projectile;
@@ -15,9 +12,8 @@ public abstract class Mob extends Entity {
 	protected boolean moving = false;
 	protected boolean walking = false;
 	
-	protected List<Projectile> projectiles = new ArrayList<Projectile>();
-
 	public void move(int xa, int ya) {
+		//System.out.println("Size: " + level.getProjectiles().size());
 		// Checks movement in both axis
 		if (xa != 0 && ya != 0) {
 			move(xa, 0);
@@ -38,18 +34,18 @@ public abstract class Mob extends Entity {
 			x += xa;
 			y += ya;
 		}
+
 	}
 
 	public void tick() {
-
+		
 	}
 
 	protected void shoot(int x, int y, double dir) {
 		// Sets dir to degrees
 		//dir = Math.toDegrees(dir);
 		Projectile p = new BlobProjectile(x, y, dir);
-		projectiles.add(p);
-		level.add(p);
+		level.addProjectile(p);
 	}
 	
 	private boolean collision(int xa, int ya) {
@@ -66,5 +62,7 @@ public abstract class Mob extends Entity {
 	public void render() {
 
 	}
+	
+	
 
 }
