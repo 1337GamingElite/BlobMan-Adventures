@@ -9,7 +9,7 @@ public class BlobProjectile extends Projectile {
 	
 	public BlobProjectile(int x, int y, double dir) {
 		super(x, y, dir);
-		range = 150;
+		range = 170;
 		speed = 4;
 		dmg = 20;	// Player has 100 at the start
 		sprite = Sprite.blob_projectile;
@@ -18,13 +18,18 @@ public class BlobProjectile extends Projectile {
 	}
 
 	public void tick() {
+		if (level.tileCollision(x, y, nx, ny, 14)) {
+			remove();
+		}
 		move();
 	}
-
+	
 	@Override
 	protected void move() {
+		if (!level.tileCollision(x, y, nx, ny, 14)) {
 		x += nx;
 		y += ny;
+		}
 		if(distance() > range) remove();
 	}
 
