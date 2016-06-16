@@ -1,15 +1,20 @@
 package com.blobMan.entity.mob;
 
+import com.blobMan.entity.projectile.BlobProjectile;
+import com.blobMan.entity.projectile.Projectile;
+import com.blobMan.main.Game;
 import com.blobMan.main.gfx.Screen;
 import com.blobMan.main.gfx.Sprite;
 import com.blobMan.main.input.Keyboard;
+import com.blobMan.main.input.Mouse;
 
 public class Player extends Mob {
 
 	private Keyboard input;
 	private Sprite sprite;
 	private int anim = 0;
-	private boolean walking = false;
+
+	private int fireRate = 0;
 
 	// Player spawns at the default location
 	public Player(Keyboard input) {
@@ -23,9 +28,12 @@ public class Player extends Mob {
 		this.y = y;
 		this.input = input;
 		sprite = Sprite.player_down;
+		fireRate = BlobProjectile.ROF;
 	}
 
 	public void tick() {
+		if (fireRate > 0)
+			fireRate--;
 		int xa = 0, ya = 0;
 		if (anim < 6969)
 			anim++;
@@ -53,6 +61,27 @@ public class Player extends Mob {
 			walking = true;
 		} else {
 			walking = false;
+		}
+
+		clear();
+		tickShooting();
+	}
+
+	private void clear() {
+		for (int i = 0; i < level.getProjectiles().size(); i++) {
+			Projectile p = level.getProjectiles().get(i);
+			if (p.isRemoved())
+				level.getProjectiles().remove(i);
+		}
+	}
+
+	private void tickShooting() {
+		if (Mouse.getButton() == 1 && fireRate <= 0) {
+			double dx = Mouse.getX() - Game.getWindowWidth() / 2;
+			double dy = Mouse.getY() - Game.getWindowHeight() / 2;
+			double dir = Math.atan2(dy, dx);
+			shoot(x, y, dir);
+			fireRate = BlobProjectile.ROF;
 		}
 	}
 

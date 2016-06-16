@@ -2,7 +2,7 @@ package com.blobMan.main.gfx;
 
 import java.util.Random;
 
-import com.blobMan.entity.mob.Player;
+import com.blobMan.entity.projectile.Projectile;
 import com.blobMan.lvl.tile.Tile;
 
 public class Screen {
@@ -32,7 +32,7 @@ public class Screen {
 			pixels[i] = 0;
 		}
 	}
-
+	
 	public void renderTile(int xPos, int yPos, Tile tile) {
 		xPos -= xOff;
 		yPos -= yOff;
@@ -44,6 +44,22 @@ public class Screen {
 					break;
 				if (xa < 0) xa = 0;
 				pixels[xa + ya * width] = tile.sprite.pixels[x + y * tile.sprite.SIZE];
+			}
+		}
+	}
+
+	public void renderProjectile(int xPos, int yPos, Projectile p) {
+		xPos -= xOff;
+		yPos -= yOff;
+		for (int y = 0; y < p.getSpriteSize(); y++) {
+			int ya = y + yPos;
+			for (int x = 0; x < p.getSpriteSize(); x++) {
+				int xa = x + xPos;
+				if (xa < -p.getSpriteSize() || xa >= width || ya < 0 || ya >= height)
+					break;
+				if (xa < 0) xa = 0;
+				int col =  p.getSprite().pixels[x + y * p.getSpriteSize()];
+				if (col != 0xffff00ff) pixels[xa + ya * width] = p.getSprite().pixels[x + y * p.getSpriteSize()];
 			}
 		}
 	}

@@ -1,6 +1,8 @@
 package com.blobMan.entity.mob;
 
 import com.blobMan.entity.Entity;
+import com.blobMan.entity.projectile.BlobProjectile;
+import com.blobMan.entity.projectile.Projectile;
 import com.blobMan.main.gfx.Sprite;
 
 public abstract class Mob extends Entity {
@@ -8,8 +10,10 @@ public abstract class Mob extends Entity {
 	protected Sprite sprite;
 	protected int dir = 0;
 	protected boolean moving = false;
-
+	protected boolean walking = false;
+	
 	public void move(int xa, int ya) {
+		//System.out.println("Size: " + level.getProjectiles().size());
 		// Checks movement in both axis
 		if (xa != 0 && ya != 0) {
 			move(xa, 0);
@@ -30,12 +34,20 @@ public abstract class Mob extends Entity {
 			x += xa;
 			y += ya;
 		}
+
 	}
 
 	public void tick() {
-
+		
 	}
 
+	protected void shoot(int x, int y, double dir) {
+		// Sets dir to degrees
+		//dir = Math.toDegrees(dir);
+		Projectile p = new BlobProjectile(x, y, dir);
+		level.addProjectile(p);
+	}
+	
 	private boolean collision(int xa, int ya) {
 		boolean solid = false;
 		// Nice C++ joke
@@ -50,5 +62,7 @@ public abstract class Mob extends Entity {
 	public void render() {
 
 	}
+	
+	
 
 }
